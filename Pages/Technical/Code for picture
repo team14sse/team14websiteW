@@ -1,0 +1,149 @@
+
+
+        import random
+        import string
+
+        sentence = "fair is foul and foul is fair"
+        len_sentence = len(sentence)
+
+        characters = string.ascii_lowercase + " "
+
+
+
+        def rand_string(character_pool, length):
+            result = []
+
+            for times in range(length):
+                rand_char = random.choice(character_pool)
+                result.append(rand_char)
+
+            return ''.join(result)
+
+
+
+        for i in range(20):
+            print(rand_string(characters, len_sentence))
+
+
+
+
+        bnbzrkqilchenkmpq ra ynwwidzb
+        sypvkbnx tkhxvnbjjc ecjcaclsv
+        gxuyqlxaqnrzcztyepyflllopntjo
+        bpiojgkecdzrwcnvutzbzyvlhxw x
+        qhnjfawmdi zgqngdqqxerkhpg xf
+
+
+
+
+        def crossover(self, a):
+            i = random.randint(1, len_sentence)
+            child_gene = self.genes[:i] + a.genes[i:]
+
+            return Genome(child_gene)
+
+
+
+
+        def mutate(self, rate):
+            a = []
+            for i in self.genes:
+                if random.random() < rate:
+                    a.append(random.choice(character_pool))
+                else:
+                    a.append(i)
+
+            self.genes = a
+
+
+
+        def calculate_fitness(self):
+            s = 0
+            for a,b in zip(self.genes, target_sentence):
+                if a == b:
+                    s = s + 1
+
+            self.fitness = s
+
+
+
+        sentence = "fair is foul and foul is fair"
+        len_sentence = len(sentence)
+        pop_size = 100
+        mutation_rate = 0.01
+        tournament_round = 6
+
+        characters = string.ascii_lowercase + " "
+
+
+
+        def __init__(self, genes):
+            self.fitness = 0
+            self.genes = genes
+
+
+
+        @classmethod
+            def random_gene(cls):
+                a = []
+
+                for i in range(len_sentence):
+                    rand_char = random.choice(character_pool)
+                    a.append(rand_char)
+
+                return cls(a)
+
+
+
+        def gene_to_string(self):
+            return ''.join(self.genes)
+
+
+
+        def select(l):
+            a=[]
+            for _ in range(tournament_round):
+                a.append(random.choice(l))
+            a = max(a, key=lambda m:m.fitness)
+
+            return a
+
+
+
+        population = []
+        for i in range(pop_size):
+            population.append(Genome.random_gene())
+
+
+
+        best_in_gen = population[0].gene_to_string()
+        i = 0
+
+
+
+        while not best_in_gen == target_sentence:
+            for j in population:
+                j.calculate_fitness()
+
+            next_gen_pop = []
+
+
+        population.sort(key=lambda m: -m.fitness)
+        best_in_gen = population[0].gene_to_string()
+        print("Best in this generation: ", best_in_gen)
+        next_gen_pop.append(population[0])
+
+
+        for i in range(pop_size - 1):
+            a = select(population)
+            b = select(population)
+
+            child = a.crossover(b)
+            child.mutate(mutation_rate)
+
+            next_gen_pop.append(child)
+
+
+
+        population = next_gen_pop
+        i = i + 1

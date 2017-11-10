@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Genetic Algorithm</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../../index.html">SSE Team 14</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="../../index.html">Home</a></li>
+                                            <li><a href="../AboutSubject/about.html">What is Software Systems Engineering?</a></li>
+                                            <li><a href="../History/history.html">History of Software Systems Engineering</a></li>
+                                            <li><a href="../People/people%20and%20publication.html">Important people involved in Software Systems Engineering</a></li>
+                                            <li><a href="Pages/Importantpubs/importantpubs.html">Important Publications SSE</a></li>
+                                            <li><a href="#">Technical Insight !</a></li>
+                                            <li><a href="../AboutTeam/team.html">Team behind the research</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Genetic Algorithm</h2>
+							<p>Inspired by Evolution</p>
+                            <p>Based on The nature of code</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<h3>Introduction</h3>
+                                
+                                <div class="12u"><span class="image fit"><img src="images/GA_Chart.svg" alt="" /></span></div>
+                                
+								<p>Genetic Algorithm tries to simulate the evolution of the animal species. </p>
+                                
+                                <p>The simple process of evolution starts with a population of animals. Each of them have genes that define their characteristics and fitness. The fittest animals have the highest chance of surviving due to their superior genes and therefore have a higher chance of mating, passing down said genes.  Genes and animals are the same concepts in this context. </p>
+
+								<p>The offspring’s genes’ are composed of some part of father’s genes and some part of mother’s genes. However, occasionally genes may mutate, producing different characteristics that creates a variance among the population. Eventually, all of the original animals in the population will be replaced by the offspring, thus creating a new generation. This process is repeated many times, and hopefully, the overall fitness of a population increases.</p>
+                                
+                                <p>The ultimate goal of this algorithm is to optimize (find the best value for) the fitness function.</p>
+
+								<hr />
+
+								<h4>Similarities between Genetic Algorithm to a simple evolution process.</h4>
+                                
+                                
+								<p>As you can see in the figure above, the genetic algorithm starts with an initializing process: the creation of the first generation. It is initialized through a random process and the evaluation of the fitness of the first generation will be part of a selection process. </p>
+
+								<ul>
+				                    <li>During selection, we will pick an animal with a high fitness (not the highest), using a process called a tournament selection. This starts with a sample in which we randomly select an animal/gene n times where n is defined as a tournament round. After sampling n times, we pick the gene that has the highest fitness among the group.</li>
+                                    
+								    <li>In the crossover process, we will get 2 animals that pass the selection process to mate, which will output the gene of the offspring. </li>
+                                    
+								    <li>In the mutation process, we will roll a dice which will indicate where and how we change the gene. </li>
+				                </ul>
+                                
+                                <p>The process will repeat until we get the new generation. We can create as many generations as we want and hope that the fitness of the younger generation is higher than the older.</p>
+                                
+                                <hr />
+
+								<h3>Why do we use Genetic Algorithm? (Implementation)</h3>
+                                
+                                <h4>Infinite monkey theorem.</h4>
+                                
+                                <p>This theorem states that given enough time, and enough monkeys typing on keyboards, eventually they will finish the complete stories of William Shakespeare. As you can imagine, there is a <em>small</em> probability that it works. Our goal is to use the genetic algorithm to help these monkeys finish their job in our lifetime.</p>
+                                
+                                <h4>Vanilla Implementation.</h4>
+                                
+                                <p>I will try to break down the code that I have written. We start with importing the libraries: random and string.  Then we define the sentence we want to make. We store the length of the string and store all characters in the alphabet.</p>
+                                
+                                <div class="6u"><span class="image fit"><img src="images/Code/1.png" alt="" /></span></div>
+                                
+                                <p>After this, we define the function that will randomly generate a string from a pool of characters and the length of the target sentence. </p>
+                                
+                                <div class="6u"><span class="image fit"><img src="images/Code/2.png" alt="" /></span></div>
+                                
+                                <p>We start by defining a result character as an empty list. After that, we pick a random character from the character pool and add it to the list. This process is repeated for the length of the target sentence to make the generated sentence length equal to the target sentence length.</p>
+                                
+                                <h5>Result</h5>
+                                <p>NNow, we will call the function 20 times.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/3.png" alt="" /></span></div>
+                                <p>The result isn’t great.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/4.png" alt="" /></span></div>
+                                
+                                <h5>The code that we used</h5>
+                                <iframe src="https://trinket.io/embed/python/47a9924f27" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                                
+                                <p>As you can see, it is near impossible to get the target sentence.</p>
+                                
+                                <h4>Genetic Algorithm.</h4>
+                                <p>We will divide the explanation into 4 parts: defining crossover operation, defining mutate operation, defining the fitness function, and the complete code and its result.</p>
+                                
+                                <h5>Crossover</h5>
+                                <p>Since the text itself is a gene, we can find the point where we cut a part of father’s gene and cut another part of mother’s gene, then we can concatenate the genes. For example, we have 2 genes from father and mother,</p>
+                                
+                                <div class="6u"><span class="image fit"><img src="images/Code/5.png" alt="" /></span></div>
+                                
+                                <p>We now find the place to cut the genes. We will do this by random from 1 to the length of the genes. I choose to start with 1 to prevent the entire parent's gene copied to a child. Suppose the cut point index is 2: the first 2 of father’s gene will be concatenated to the last 4 of mother’s gene.</p>
+                                
+                                <p>Let’s Look at a part of a code:</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/6.png" alt="" /></span></div>
+                                <p>As I described, we find the random cutting point, then we concatenate the genes. In this case, the parents' gene is a class self and a. We will return a child’s gene.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/7.png" alt="" /></span></div>
+                                
+                                <h5>Mutatation</h5>
+                                <p>The process is simple, for each of the characters in a gene we toss a biased coin that has 99% chance of being heads (won’t change the gene) and 1% chance of being a tail (replace the current one with a random character). </p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/8.png" alt="" /></span></div>
+                                
+                                <p>In the code we start by defining a list “a”, then we loop through a gene and if the rate (which will be 0.01) is more the random.random() (finds a random float between 0 to 1) we will add a random character to a list, else we just add the original. Then we set genes to be the mutated one.</p>
+                                
+                                <h5>Fitness Function</h5>
+                                <p>This fitness function is quite simple. We start with the target sentence. We then increase the fitness by one of the characters until the gene matches the target sentence.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/9.png" alt="" /></span></div>
+                                
+                                <p>We start by setting fitness to zero. Then we compare the gene and target sentence. After that, we store the fitness as a class variable.</p>
+                                
+                                <h5>The Main Code</h5>
+                                <p>There are 2 parts: The first part is the class genome and the second part is about training. Before doing anything, we should define all the constants such as mutation rate and the number of tournament rounds.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/10.png" alt="" /></span></div>
+                                
+                                <h6>Genome Class</h6>
+                                <p>Let’s look at the constructor first.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/11.png" alt="" /></span></div>
+                                <p>We start by defining the fitness of the Genome and the gene(strings) itself.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/12.png" alt="" /></span></div>
+                                
+                                <p>The Classmethod is a method you call on the class instead of an object of it. This is useful when we initiate the first generation population. The way we choose the gene is the same as the monkeys. The return value is a Genome Class.</p>
+                                
+                                <p>The Crossover, Mutate, and fitness calculations are the class’s method. I also add the gene_to_string method, so that we can see the result clearly.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/13.png" alt="" /></span></div>
+                                
+                                <h6>Training</h6>
+                                <p>We start by defining the way we select a best population, which is tournament selection.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/14.png" alt="" /></span></div>
+                                <p>Where variable “l”  is the population. We now going to create a first generation population, using classmethod.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/15.png" alt="" /></span></div>
+                                <p>We are going to assume that the best gene in the generation is the first one so that the while loop will work. Furthermore, I have added a counter so that we can track the number of iterations.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/16.png" alt="" /></span></div>
+                                
+                                <h6>In the while loop.</h6>
+                                <p>The while loop condition is simple: repeat until the gene is equal to the target string. In the while loop, we first calculate the fitness of the individual Genome class and define an empty list that will contain the next generation.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/17.png" alt="" /></span></div>
+                                <p>We then sort the population by a fitness of individual Genome. The code will display the best genome in the population. Also, the fittest will survive to the next generation without crossover and mutation.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/18.png" alt="" /></span></div>
+                                <p>We now going to get the rest of the population by crossover and mutation.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/19.png" alt="" /></span></div>
+                                <p>Finally, we replace the old generation with the next one and increment the counter.</p>
+                                <div class="6u"><span class="image fit"><img src="images/Code/20.png" alt="" /></span></div>
+                                
+                                <h5>Real Working code.</h5>
+                                <p>Let's see how the code works.</p>
+                                <iframe src="https://trinket.io/embed/python/bebf05a10e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                                
+                                <hr />
+                                
+                                <p>We are able to reduce the loss between the target sentences and the generated sentence by using a Genetic Algorithm. This can be extended to improve the speed of certain programs that can be found in the papers published<sup><a href="#fn1" id="ref1">1</a></sup> by the Software System Engineering research group at UCL.</p>
+                                
+                                <sup id="fn1">Publications. (n.d.). Retrieved November 02, 2017, from http://sse.cs.ucl.ac.uk/publications/<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
+                                
+                            </div>
+                            
+						</section>
+					</article>
+
+				<!-- Footer -->
+						<footer id="footer">
+						<div class="inner">
+
+							<ul class="copyright">
+								<li>&copy; Team 14 2017</li><li>Partly Designed: <a>HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

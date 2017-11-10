@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>History of SSE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../../index.html">SSE Team 14</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="../../index.html">Home</a></li>
+                                            <li><a href="../AboutSubject/about.html">What is Software Systems Engineering?</a></li>
+                                            <li><a href="#">History of Software Systems Engineering</a></li>
+                                            <li><a href="../People/people%20and%20publication.html">Important people involved in Software Systems Engineering</a></li>
+                                            <li><a href="../Importantpubs/importantpubs.html">Important Publications SSE</a></li>
+                                            <li><a href="../Technical/Page.html">Technical Insight !</a></li>
+                                            <li><a href="../AboutTeam/team.html">Team behind the research</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>History of Software Systems Engineering</h2>
+							<p>A Brief Introduction</p>
+
+
+						</header>
+
+						<meta name="viewport" content="width=device-width, initial-scale=1.0">
+						<style>
+						* {
+						    box-sizing: border-box;
+						}
+
+						body {
+						    background-color: White;
+						    font-family: Helvetica, sans-serif;
+						}
+
+						/* The actual timeline (the vertical ruler) */
+						.timeline {
+						    position: relative;
+						    max-width: 1200px;
+						    margin: 0 auto;
+						}
+
+						/* The actual timeline (the vertical ruler) */
+						.timeline::after {
+						    content: '';
+						    position: absolute;
+						    width: 6px;
+						    background-color: #2E3842;
+						    top: 0;
+						    bottom: 0;
+						    left: 50%;
+						    margin-left: -3px;
+						}
+
+						/* Container around content */
+						.container {
+						    padding: 10px 40px;
+						    position: relative;
+						    background-color: inherit;
+						    width: 50%;
+						}
+
+						/* The circles on the timeline */
+						.container::after {
+						    content: '';
+						    position: absolute;
+						    width: 25px;
+						    height: 25px;
+						    right: -17px;
+						    background-color: white;
+						    border: 4px solid #2E3842;
+						    top: 15px;
+						    border-radius: 50%;
+						    z-index: 1;
+						}
+
+						/* Place the container to the left */
+						.left {
+						    left: 0;
+						}
+
+						/* Place the container to the right */
+						.right {
+						    left: 50%;
+						}
+
+						/* Add arrows to the left container (pointing right) */
+						.left::before {
+						    content: " ";
+						    height: 0;
+						    position: absolute;
+						    top: 22px;
+						    width: 0;
+						    z-index: 1;
+						    right: 30px;
+						    border: medium solid #2E3842;
+						    border-width: 10px 0 10px 10px;
+						    border-color: transparent transparent transparent #2E3842;
+						}
+
+						/* Add arrows to the right container (pointing left) */
+						.right::before {
+						    content: " ";
+						    height: 0;
+						    position: absolute;
+						    top: 22px;
+						    width: 0;
+						    z-index: 1;
+						    left: 30px;
+						    border: medium solid #2E3842;
+						    border-width: 10px 10px 10px 0;
+						    border-color: transparent #2E3842 transparent transparent;
+						}
+
+						/* Fix the circle for containers on the right side */
+						.right::after {
+						    left: -16px;
+						}
+
+						/* The actual content */
+						.content {
+						    padding: 20px 30px;
+						    background-color: #2E3842;
+						    position: relative;
+						    border-radius: 6px;
+						}
+
+						/* Media queries - Responsive timeline on screens less than 600px wide */
+						@media all and (max-width: 600px) {
+						  /* Place the timelime to the left */
+						  .timeline::after {
+						    left: 31px;
+						  }
+
+						  /* Full-width containers */
+						  .container {
+						    width: 100%;
+						    padding-left: 70px;
+						    padding-right: 25px;
+						  }
+
+						  /* Make sure that all arrows are pointing leftwards */
+						  .container::before {
+						    left: 60px;
+						    border: medium solid white;
+						    border-width: 10px 10px 10px 0;
+						    border-color: transparent white transparent transparent;
+						  }
+
+						  /* Make sure all circles are at the same spot */
+						  .left::after, .right::after {
+						    left: 15px;
+						  }
+
+						  /* Make all right containers behave like the left ones */
+						  .right {
+						    left: 0%;
+						  }
+						}
+						</style>
+
+
+
+						<div class="timeline">
+
+						  <div class="container left">
+						    <div class="content">
+						      <h2>Early 1940s</h2>
+						      <p>The term Systems Engineering first appeared in Bell Telephone Laboratories.</p>
+						    </div>
+						  </div>
+
+						  <div class="container right">
+						    <div class="content">
+						      <h2>1946</h2>
+						      <p>The RAND Corporation was founded by the United States Air Force and created systems analysis, which is an important part of systems engineering.</p>
+						    </div>
+						  </div>
+
+						  <div class="container left">
+						    <div class="content">
+						      <h2>Late 1940s</h2>
+						      <p>The Department of Defense entered the world of systems engineering with the initial development of missiles and missile-defense systems. <br>Paul Fitts addressed the allocation of the systems functions to the physical elements of the system.</p>
+						    </div>
+						  </div>
+
+						  <div class="container right">
+						    <div class="content">
+						      <h2>1950</h2>
+						      <p>The first attempt to teach systems engineering at MIT by Mr. Gilman, Director of Systems Engineering at Bell. </p>
+						    </div>
+						  </div>
+
+						  <div class="container left">
+						    <div class="content">
+						      <h2>Late 1960s</h2>
+						      <p>Standards for System Engineering have emerged first appear in military standards.</p>
+						    </div>
+						  </div>
+
+						  <div class="container right">
+						    <div class="content">
+						      <h2>1990</h2>
+						      <p>The National Council on Systems Engineering (NCOSE) was founded.<br><br>NCOSE was created to address the need to improve systems engineering practices and education. </p>
+						    </div>
+						  </div>
+
+							<div class="container left">
+						    <div class="content">
+						      <h2>1995</h2>
+						      <p>SP-6105 was originally released to bring the basic concepts and techniques of systems engineering to the National Aeronautics and Space Administration (NASA) personnel to identify the nature of NASA systems and the NASA environment. <br>Since then, systems engineering at NASA, within national and international standard bodies, and as a discipline has undergone rapid evolution.</p>
+						    </div>
+						  </div>
+
+							<div class="container right">
+								<div class="content">
+									<h2>1999</h2>
+									<p>The Software Systems Engineering Group, a constituent part of the University College London, Department of Computer Science was formally set up. </p>
+								</div>
+							</div>
+
+						</div>
+
+        <section class="wrapper style5">
+						<div class="inner">
+							<h3 style="color: #050404;"> Reference</h3>
+							<p style="color: #050404;"> <a href="https://en.wikipedia.org/wiki/Systems_engineering">https://en.wikipedia.org/wiki/Systems_engineering</a> <br>
+								<a href="http://www.incose.org/AboutSE/history-of-systems-engineering">http://www.incose.org/AboutSE/history-of-systems-engineering</a> <br>
+								<a href="https://www.nasa.gov/sites/default/files/atoms/files/nasa_systems_engineering_handbook.pdf">https://www.nasa.gov/sites/default/files/atoms/files/nasa_systems_engineering_handbook.pdf</a><br>
+								<a href="http://sse.cs.ucl.ac.uk/introduction/">http://sse.cs.ucl.ac.uk/introduction/</a><br> </p>
+
+						</div>
+						</section>
+
+					</article>
+
+
+
+				<!-- Footer -->
+						<footer id="footer">
+						<div class="inner">
+
+							<ul class="copyright">
+								<li>&copy; Team 14 2017</li><li>Partly Designed: <a>HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
